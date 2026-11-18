@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CYBER AGAR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="menu" class="screen">
+        <div class="box">
+            <h1 class="title">CYBER AGAR</h1>
+
+            <label>ТВОЙ НИК</label>
+            <input type="text" id="nick" placeholder="Введи ник..." maxlength="15">
+
+            <label>ЦВЕТ</label>
+            <div class="colors">
+                <div class="color sel" data-c="#00ffff" style="background:#00ffff"></div>
+                <div class="color" data-c="#ff00ff" style="background:#ff00ff"></div>
+                <div class="color" data-c="#ffff00" style="background:#ffff00"></div>
+                <div class="color" data-c="#00ff00" style="background:#00ff00"></div>
+                <div class="color" data-c="#ff6600" style="background:#ff6600"></div>
+                <div class="color" data-c="#ff0066" style="background:#ff0066"></div>
+            </div>
+
+            <button id="playBtn">▶ ИГРАТЬ</button>
+
+            <div class="help">
+                <b>УПРАВЛЕНИЕ:</b><br>
+                🖱️ Мышь / 📱 Палец — движение<br>
+                ⎵ Пробел / 2 тапа — сплит<br>
+                W / долгое нажатие — выброс массы
+            </div>
+        </div>
+    </div>
+
+    <div id="game" class="screen hidden">
+        <canvas id="cv"></canvas>
+
+        <div id="lb" class="panel">
+            <h3>ТОП-10</h3>
+            <ul id="lbList"></ul>
+        </div>
+
+        <div id="stats" class="panel">
+            <div>МАССА: <span id="mass">0</span></div>
+            <div>ИГРОКОВ: <span id="count">0</span></div>
+        </div>
+
+        <div id="map" class="panel">
+            <canvas id="mapCv" width="180" height="180"></canvas>
+        </div>
+
+        <div id="mbtn" class="hidden">
+            <button id="splitBtn" class="mb">⚡</button>
+            <button id="ejectBtn" class="mb">💧</button>
+        </div>
+    </div>
+
+    <div id="dead" class="screen hidden">
+        <div class="box">
+            <h2 class="title red">ТЫ СЪЕДЕН</h2>
+            <p>Твоя масса: <span id="finalMass">0</span></p>
+            <button id="againBtn">🔄 ЗАНОВО</button>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
